@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Connexion'),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blueGrey,
         iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(

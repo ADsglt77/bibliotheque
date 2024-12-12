@@ -21,7 +21,7 @@ class AjouterUserView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title : Text('Ajouter un Utilisateur', style: TextStyle(color: Colors.white60)),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blueGrey,
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -20,7 +20,7 @@ class UserListView extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text('Liste des Utilisateurs'),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blueGrey,
         actions: userRole == 'admin'
           ? [
             IconButton(

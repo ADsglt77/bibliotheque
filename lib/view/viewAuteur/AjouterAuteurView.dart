@@ -10,7 +10,7 @@ class AjouterAuteurView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.cyan,
+          backgroundColor: Colors.blueGrey,
           title: Text('Ajouter un Auteur', style: TextStyle(color: Colors.white60))),
       body: Padding(
         padding: EdgeInsets.all(16.0),

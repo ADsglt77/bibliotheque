@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bibliothèque Numérique'),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blueGrey,
       ),
       drawer: Drawer(
         child: ListView(
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.cyan,
+                color: Colors.blueGrey,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

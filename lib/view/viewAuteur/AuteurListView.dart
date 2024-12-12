@@ -26,7 +26,7 @@ class AuteurListView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blueGrey,
         title: const Text(
           'Liste des Auteurs',
           style: TextStyle(color: Colors.white60),

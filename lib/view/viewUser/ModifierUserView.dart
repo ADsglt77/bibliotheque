@@ -24,7 +24,7 @@ class ModifierUserView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Modifier l\'Utilisateur', style: TextStyle(color: Colors.white60)),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.blueGrey,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

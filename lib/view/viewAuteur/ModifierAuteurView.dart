@@ -16,7 +16,7 @@ class ModifierAuteurView extends StatelessWidget {
 
       return Scaffold(
         appBar: AppBar(title: Text('Modifier l\'Auteur' , style: TextStyle(color: Colors.white60)) ,
-            backgroundColor: Colors.cyan,
+            backgroundColor: Colors.blueGrey,
             leading: IconButton(
               icon: Icon(Icons.arrow_back , color: Colors.white),
               onPressed: () {
