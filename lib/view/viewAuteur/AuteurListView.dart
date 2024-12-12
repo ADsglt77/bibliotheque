@@ -67,7 +67,6 @@ class AuteurListView extends StatelessWidget {
             margin: const EdgeInsets.all(8),
             child: ListTile(
               title: Text(auteur.nomAuteur),
-              subtitle: Text('Description de l\'auteur'),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
