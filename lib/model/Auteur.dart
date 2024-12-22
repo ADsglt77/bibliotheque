@@ -54,8 +54,4 @@ class Auteur {
       listLivreAuteur: [],
     );
   }
-
-
-
-
 }

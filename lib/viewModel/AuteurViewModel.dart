@@ -30,9 +30,4 @@ class AuteurViewModel extends ChangeNotifier {
     await _auteurDb.supprimerAuteur(idAuteur);
     await chargerAuteurs();
   }
-
 }
-
-
-
-

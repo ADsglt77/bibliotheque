@@ -7,7 +7,8 @@ class User {
   String _roleUser = '';
 
   // Constructeur
-  User({required int idUser, required String nomUser, required String prenomUser, required String loginUser, required String mdpUser, required String roleUser}) {
+  User(
+      {required int idUser, required String nomUser, required String prenomUser, required String loginUser, required String mdpUser, required String roleUser}) {
     _idUser = idUser;
     _nomUser = nomUser;
     _prenomUser = prenomUser;
@@ -18,10 +19,15 @@ class User {
 
   // Getters
   int get idUser => _idUser;
+
   String get nomUser => _nomUser;
+
   String get prenomUser => _prenomUser;
+
   String get loginUser => _loginUser;
+
   String get mdpUser => _mdpUser;
+
   String get roleUser => _roleUser;
 
   //Setters
@@ -74,57 +80,9 @@ class User {
     if (identical(this, other)) return true;
 
     return other is User &&
-      other._idUser == _idUser;
+        other._idUser == _idUser;
   }
 
   @override
   int get hashCode => _idUser.hashCode;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

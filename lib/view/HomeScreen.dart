@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             if (widget.userRole == 'admin')
               ListTile(
-                leading: const Icon(Icons.add, color: Colors.deepPurpleAccent),
+                leading: const Icon(Icons.add, color: Colors.blueGrey),
                 title: const Text('Ajouter un Livre'),
                 onTap: () {
                   Navigator.pop(context); // Ferme le tiroir (Drawer)
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ListTile(
-              leading: const Icon(Icons.list, color: Colors.deepPurpleAccent),
+              leading: const Icon(Icons.list, color: Colors.blueGrey),
               title: Text(widget.userRole == 'admin'
                   ? 'Gérer les Auteurs'
                   : 'Voir les Auteurs'),
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             if (widget.userRole == 'admin')
               ListTile(
-                leading: const Icon(Icons.list, color: Colors.deepPurpleAccent),
+                leading: const Icon(Icons.list, color: Colors.blueGrey),
                 title: const Text('Gérer les Utilisateurs'),
                 onTap: () {
                   Navigator.pop(context); // Ferme le tiroir (Drawer)

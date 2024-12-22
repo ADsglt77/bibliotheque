@@ -23,7 +23,7 @@ class ModifierUserView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Modifier l\'Utilisateur', style: TextStyle(color: Colors.white60)),
+        title: Text('Modifier l\'Utilisateur', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.blueGrey,
       ),
       body: Padding(
@@ -115,20 +115,4 @@ class ModifierUserView extends StatelessWidget {
       )
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

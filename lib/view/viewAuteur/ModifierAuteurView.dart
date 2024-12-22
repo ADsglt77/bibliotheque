@@ -15,7 +15,7 @@ class ModifierAuteurView extends StatelessWidget {
       _nomAuteurController.text = auteur.nomAuteur;
 
       return Scaffold(
-        appBar: AppBar(title: Text('Modifier l\'Auteur' , style: TextStyle(color: Colors.white60)) ,
+        appBar: AppBar(title: Text('Modifier l\'Auteur' , style: TextStyle(color: Colors.white)) ,
             backgroundColor: Colors.blueGrey,
             leading: IconButton(
               icon: Icon(Icons.arrow_back , color: Colors.white),
@@ -57,11 +57,4 @@ class ModifierAuteurView extends StatelessWidget {
         ),
       );
     }
-
-
-
-
-
-
-
 }

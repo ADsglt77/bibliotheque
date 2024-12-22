@@ -18,10 +18,7 @@ class AuteurListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<AuteurViewModel>(context, listen: false).chargerAuteurs();
-
     final auteurViewModel = Provider.of<AuteurViewModel>(context);
-
     Future.microtask(() => auteurViewModel.chargerAuteurs());
 
     return Scaffold(

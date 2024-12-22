@@ -21,7 +21,6 @@ class UserViewModel with ChangeNotifier {
   String get userName => _userName;
   String get userRole => _userRole;
 
-  // Récupérer la liste des utilisateurs
   Future<void> chargerUtilisateurs() async {
     _isLoading = true;
     notifyListeners();
@@ -32,7 +31,6 @@ class UserViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  // Ajouter un utilisateur
   Future<void> ajouterUtilisateur({
     required String nomUser,
     required String prenomUser,
@@ -51,7 +49,6 @@ class UserViewModel with ChangeNotifier {
     await chargerUtilisateurs();
   }
 
-  // Mettre à jour un utilisateur
   Future<void> mettreAjourUtilisateur(
     int idUser,
     String nomUser,
@@ -72,13 +69,11 @@ class UserViewModel with ChangeNotifier {
     await chargerUtilisateurs();
   }
 
-  // Supprimer un utilisateur
   Future<void> supprimerUtilisateur(int idUser) async {
     await _userDatabase.supprimerUser(idUser);
     await chargerUtilisateurs();
   }
 
-  // Verifier le login et mettre à jour les informations de l'utilisateur connecté
   Future<String?> login(String login, String password) async {
     if (login.isEmpty || password.isEmpty) {
       return 'Veuillez remplir tous les champs';
@@ -90,30 +85,15 @@ class UserViewModel with ChangeNotifier {
       _userName = user.nomUser;
       _userRole = user.roleUser;
       notifyListeners();
-      return null; // Pas d'erreur
+      return null;
     } else {
       return 'Login ou mot de passe incorrect';
     }
   }
 
-  // Déconnecter l'utilisateur
   Future<void> logout() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('userName');
     notifyListeners();
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

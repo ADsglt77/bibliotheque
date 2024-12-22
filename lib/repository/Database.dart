@@ -83,9 +83,4 @@ class DatabaseClient {
       'roleUser': 'user',
     });
   }
-
-
-
-  
-
 }

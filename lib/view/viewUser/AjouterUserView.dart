@@ -20,7 +20,7 @@ class AjouterUserView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title : Text('Ajouter un Utilisateur', style: TextStyle(color: Colors.white60)),
+        title : Text('Ajouter un Utilisateur', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.blueGrey,
       ),
       body: SingleChildScrollView(

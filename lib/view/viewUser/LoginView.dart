@@ -17,7 +17,6 @@ class LoginView extends StatelessWidget {
       appBar: AppBar(
         title: Text('Connexion'),
         backgroundColor: Colors.blueGrey,
-        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -44,9 +43,6 @@ class LoginView extends StatelessWidget {
                   _loginController.text.trim(),
                   _passwordController.text.trim(),
                 );
-                // vérifier si le mot de passe fait bien 12 caractères Majuscule minuscule chiffre et caractère spéciale
-
-
                 if (errorMessage != null) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -55,11 +51,8 @@ class LoginView extends StatelessWidget {
                     ),
                   );
                 } else {
-                  // Connexion reussie, on récupère le nom et le role de l'utilisateur
                   final String userName = userViewModel.userName;
                   final String userRole = userViewModel.userRole;
-
-                  // Redirection vers HomeScreen en passant le role de l'utilisateur
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
@@ -78,24 +71,4 @@ class LoginView extends StatelessWidget {
       ),
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
