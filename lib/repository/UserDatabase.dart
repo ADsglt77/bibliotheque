@@ -6,7 +6,6 @@ import 'Database.dart';
 class UserDatabase {
   final DatabaseClient _dbClient = DatabaseClient();
 
-
   Future<List<User>> obtenirTousLesUsers() async {
     final db = await _dbClient.database;
     final List<Map<String, dynamic>> result = await db.query('USERS');

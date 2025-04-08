@@ -15,7 +15,7 @@ class ConfirmDeleteDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(title, style: TextStyle(color: Colors.white)),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Color(0xFF5B54B8),
       content: Text(content, style: TextStyle(color: Colors.white)),
       actions: [
         TextButton(

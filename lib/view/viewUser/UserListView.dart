@@ -5,7 +5,7 @@ import '../../viewmodel/UserViewModel.dart';
 import 'AjouterUserView.dart';
 import 'ModifierUserView.dart';
 
-class UserListView extends StatelessWidget{
+class UserListView extends StatelessWidget {
   final String userName;
   final String userRole;
 
@@ -19,23 +19,11 @@ class UserListView extends StatelessWidget{
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Liste des Utilisateurs'),
-        backgroundColor: Colors.blueGrey,
-        actions: userRole == 'admin'
-          ? [
-            IconButton(
-              icon: const Icon(Icons.add),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AjouterUserView()),
-                );
-              },
-            ),
-          ]
-          : [],
+        title: const Text('Liste des Utilisateurs', style: TextStyle(color: Colors.white)),
+        backgroundColor: Color(0xFF5B54B8),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
-      body : Consumer<UserViewModel>(
+      body: Consumer<UserViewModel>(
         builder: (context, userViewModel, child) {
           if (userViewModel.utilisateurs.isEmpty) {
             return const Center(child: Text('Aucun utilisateur disponible.'));
@@ -66,8 +54,8 @@ class UserListView extends StatelessWidget{
                       ),
                       IconButton(
                         icon: const Icon(
-                            Icons.delete,
-                            color: Colors.red,
+                          Icons.delete,
+                          color: Colors.red,
                         ),
                         onPressed: () {
                           userViewModel.supprimerUtilisateur(user.idUser!);
@@ -79,8 +67,24 @@ class UserListView extends StatelessWidget{
               );
             },
           );
-        }
+        },
+      ),
+      // Le bouton flottant en bas à droite pour ajouter un utilisateur
+      floatingActionButton: userRole == 'admin'
+          ? FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AjouterUserView()),
+          );
+        },
+        backgroundColor: Color(0xFF5B54B8),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white, // Icône "+" en blanc
+        ),
       )
+          : null, // Si l'utilisateur n'est pas admin, ne pas afficher le bouton
     );
   }
 }

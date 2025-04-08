@@ -65,8 +65,9 @@ class _AjouterLivreViewState extends State<AjouterLivreView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ajouter un livre'),
-        backgroundColor: Colors.blueGrey,
+        title: const Text('Ajouter un livre' , style: TextStyle(color: Colors.white)),
+        backgroundColor: Color(0xFF5B54B8),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: _isLoading
         ? const Center(child: CircularProgressIndicator())
@@ -115,12 +116,12 @@ class _AjouterLivreViewState extends State<AjouterLivreView> {
                   children: [
                     ElevatedButton.icon(
                       onPressed: () => _pickImage(ImageSource.gallery),
-                      icon: const Icon(Icons.photo_library, color: Colors.blueGrey),
+                      icon: const Icon(Icons.photo_library, color: Color(0xFF5B54B8)),
                       label: const Text('Galerie'),
                     ),
                     ElevatedButton.icon(
                       onPressed: () => _pickImage(ImageSource.camera),
-                      icon: const Icon(Icons.camera_alt, color: Colors.blueGrey),
+                      icon: const Icon(Icons.camera_alt, color: Color(0xFF5B54B8)),
                       label: const Text('Appareil photo'),
                     ),
                   ],

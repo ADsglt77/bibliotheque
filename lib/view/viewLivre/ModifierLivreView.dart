@@ -72,8 +72,9 @@ class _ModifierLivreViewState extends State<ModifierLivreView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Modifier le livre'),
-        backgroundColor: Colors.blueGrey,
+        title: const Text('Modifier le livre', style: TextStyle(color: Colors.white)),
+        backgroundColor: Color(0xFF5B54B8),
+        iconTheme: IconThemeData(color: Colors.white)
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -124,12 +125,12 @@ class _ModifierLivreViewState extends State<ModifierLivreView> {
                 children: [
                   ElevatedButton.icon(
                     onPressed: () => _pickImage(ImageSource.gallery),
-                    icon: const Icon(Icons.photo_library, color: Colors.blueGrey),
+                    icon: const Icon(Icons.photo_library, color: Color(0xFF5B54B8)),
                     label: const Text('Galerie'),
                   ),
                   ElevatedButton.icon(
                     onPressed: () => _pickImage(ImageSource.camera),
-                    icon: const Icon(Icons.camera_alt, color: Colors.blueGrey),
+                    icon: const Icon(Icons.camera_alt, color: Color(0xFF5B54B8)),
                     label: const Text('Appareil photo'),
                   ),
                 ],
@@ -154,7 +155,7 @@ class _ModifierLivreViewState extends State<ModifierLivreView> {
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   textStyle: const TextStyle(fontSize: 20)),
-                child: const Text('Modifier le livre'),
+                child: const Text('Moddifier le livre' ),
               ),
             ],
           ),

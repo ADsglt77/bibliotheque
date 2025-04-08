@@ -24,9 +24,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bibliothèque Numérique',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
       home: LoginView(),
     );
   }

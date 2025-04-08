@@ -48,7 +48,7 @@ class CustomCard extends StatelessWidget {
             ? const Icon(
           Icons.book,
           size: 50,
-          color: Colors.blueGrey,
+          color: Color(0xFF5B54B8),
         )
             : null),
         title: Text(title),

@@ -39,8 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bibliothèque Numérique'),
-        backgroundColor: Colors.blueGrey,
+
+        title: const Text(
+          'Bibliothèque Numérique',
+          style: TextStyle(color: Color(0xFF5B54B8)),
+        ),
+        iconTheme: IconThemeData(color: Color(0xFF5B54B8)),
       ),
       drawer: Drawer(
         child: ListView(
@@ -48,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blueGrey,
+                color: Color(0xFF5B54B8),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,9 +68,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            // Ajouter le nom et prénom de l'utilisateur en dessous de "Menu"
+            ListTile(
+              title: Text(
+                'Bonjour ${widget.userName}', // Affiche le nom de l'utilisateur connecté
+                style: TextStyle(
+                  color: Color(0xFF5B54B8), // Texte en blanc
+                  fontSize: 20, // Taille de police plus grande
+                  fontWeight: FontWeight.bold, // Mettre en gras pour le mettre en valeur
+                ),
+              ),
+            ),
+            const Divider(),
             if (widget.userRole == 'admin')
               ListTile(
-                leading: const Icon(Icons.add, color: Colors.blueGrey),
+                leading: const Icon(Icons.add, color: Color(0xFF5B54B8)),
                 title: const Text('Ajouter un Livre'),
                 onTap: () {
                   Navigator.pop(context); // Ferme le tiroir (Drawer)
@@ -80,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ListTile(
-              leading: const Icon(Icons.list, color: Colors.blueGrey),
+              leading: const Icon(Icons.list, color: Color(0xFF5B54B8)),
               title: Text(widget.userRole == 'admin'
                   ? 'Gérer les Auteurs'
                   : 'Voir les Auteurs'),
@@ -97,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             if (widget.userRole == 'admin')
               ListTile(
-                leading: const Icon(Icons.list, color: Colors.blueGrey),
+                leading: const Icon(Icons.list, color: Color(0xFF5B54B8)),
                 title: const Text('Gérer les Utilisateurs'),
                 onTap: () {
                   Navigator.pop(context); // Ferme le tiroir (Drawer)

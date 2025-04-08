@@ -1,4 +1,4 @@
-import 'package:bibliotheque/model/Auteur.dart';
+import 'Auteur.dart';
 
 class Livre {
   late int? _idLivre;

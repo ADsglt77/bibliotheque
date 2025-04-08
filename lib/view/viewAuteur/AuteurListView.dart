@@ -23,10 +23,10 @@ class AuteurListView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color(0xFF5B54B8),
         title: const Text(
           'Liste des Auteurs',
-          style: TextStyle(color: Colors.white60),
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -41,18 +41,6 @@ class AuteurListView extends StatelessWidget {
             );
           },
         ),
-        actions: [
-          if (userRole == 'admin')
-            IconButton(
-              icon: const Icon(Icons.add, color: Colors.white),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AjouterAuteurView()),
-                );
-              },
-            ),
-        ],
       ),
       body: auteurViewModel.auteurs.isEmpty
           ? const Center(child: Text('Aucun auteur disponible.'))
@@ -106,6 +94,22 @@ class AuteurListView extends StatelessWidget {
           );
         },
       ),
+      // Le bouton flottant en bas à droite
+      floatingActionButton: userRole == 'admin'
+          ? FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AjouterAuteurView()),
+          );
+        },
+        backgroundColor: Color(0xFF5B54B8),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white, // Icône "+" en blanc
+        ),
+      )
+          : null, // Si l'utilisateur n'est pas admin, ne pas afficher le bouton
     );
   }
 }

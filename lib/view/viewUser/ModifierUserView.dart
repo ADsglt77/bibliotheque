@@ -11,6 +11,8 @@ class ModifierUserView extends StatelessWidget {
   final TextEditingController _prenomUserController = TextEditingController();
   final TextEditingController _loginUserController = TextEditingController();
   final TextEditingController _roleUserController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   ModifierUserView({super.key, required this.user}) {
     _nomUserController.text = user.nomUser;
@@ -24,7 +26,8 @@ class ModifierUserView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Modifier l\'Utilisateur', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color(0xFF5B54B8),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -62,57 +65,86 @@ class ModifierUserView extends StatelessWidget {
                   return null;
                 },
               ),
-            DropdownButtonFormField<String>(
-              value: user.roleUser,
-              decoration: const InputDecoration(labelText: 'Rôle de l\'utilisateur'),
-              items: const [
-                DropdownMenuItem(
-                  value: 'admin',
-                  child: Text('Admin'),
-                ),
-                DropdownMenuItem(
-                  value: 'user',
-                  child: Text('User'),
-                ),
-              ],
-              onChanged: (value) {
-                if (value != null) {
-                  _roleUserController.text = value;
-                }
-              },
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Veuillez choisir le rôle de l\'utilisateur';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  Provider.of<UserViewModel>(context, listen: false)
-                      .mettreAjourUtilisateur(
-                    user.idUser!,
-                    _nomUserController.text,
-                    _prenomUserController.text,
-                    _loginUserController.text,
-                    '',
-                    _roleUserController.text,
-                  );
-                  Navigator.pop(context);
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                textStyle: const TextStyle(fontSize: 20),
+              DropdownButtonFormField<String>(
+                value: user.roleUser,
+                decoration: const InputDecoration(labelText: 'Rôle de l\'utilisateur'),
+                items: const [
+                  DropdownMenuItem(
+                    value: 'admin',
+                    child: Text('Admin'),
+                  ),
+                  DropdownMenuItem(
+                    value: 'user',
+                    child: Text('User'),
+                  ),
+                ],
+                onChanged: (value) {
+                  if (value != null) {
+                    _roleUserController.text = value;
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez choisir le rôle de l\'utilisateur';
+                  }
+                  return null;
+                },
               ),
-              child: const Text('Mettre à jour'),
-            ),
+              const SizedBox(height: 20),
+              // Ajout du champ pour le mot de passe
+              TextFormField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(labelText: 'Nouveau mot de passe'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez saisir un nouveau mot de passe';
+                  } else if (value.length < 6) {
+                    return 'Le mot de passe doit contenir au moins 6 caractères';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 20),
+              // Ajout du champ pour confirmer le mot de passe
+              TextFormField(
+                controller: _confirmPasswordController,
+                obscureText: true,
+                decoration: const InputDecoration(labelText: 'Confirmer le mot de passe'),
+                validator: (value) {
+                  if (value != _passwordController.text) {
+                    return 'Les mots de passe ne correspondent pas';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Mise à jour des informations de l'utilisateur, y compris le mot de passe
+                    Provider.of<UserViewModel>(context, listen: false)
+                        .mettreAjourUtilisateur(
+                      user.idUser!,
+                      _nomUserController.text,
+                      _prenomUserController.text,
+                      _loginUserController.text,
+                      _passwordController.text, // Mot de passe modifié
+                      _roleUserController.text,
+                    );
+                    Navigator.pop(context);
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                child: const Text('Mettre à jour'),
+              ),
             ],
-          )
-        )
-      )
+          ),
+        ),
+      ),
     );
   }
 }

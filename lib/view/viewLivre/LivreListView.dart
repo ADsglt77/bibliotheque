@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../viewmodel/LivreViewModel.dart';
 import '../widget/CustomCard.dart';
-import '../widget/ConfirmDeleteDialog.dart';
+import '../widget/ConfirmDeleteDialog.dart'; // Importer ConfirmDeleteDialog
+import 'ModifierLivreView.dart';
 
 class LivreListView extends StatefulWidget {
   final String userName;
@@ -32,7 +33,7 @@ class _LivreListViewState extends State<LivreListView> {
 
     return Scaffold(
       body: livreViewModel.livres.isEmpty
-          ? const Center(child: Text('Aucun livre disponible.'))
+          ? const Center(child: Text('Aucun livre disponible.', style: TextStyle(fontSize: 20)))
           : ListView.builder(
         itemCount: livreViewModel.livres.length,
         itemBuilder: (context, index) {
@@ -44,7 +45,12 @@ class _LivreListViewState extends State<LivreListView> {
             jacketPath: livre.jacketPath,
             userRole: widget.userRole,
             onTap: () {
-              // Modifier livre ici
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ModifierLivreView(livre: livre),
+                ),
+              );
             },
             onDelete: () {
               showDialog(
